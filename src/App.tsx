@@ -7,7 +7,7 @@ import HomeScreen from "./app/screen/home/HomeScreen";
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <HomeScreen />
         <Counter />
