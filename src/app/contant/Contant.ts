@@ -15,7 +15,7 @@ export const DEFINE_ROUTE = {
   },
   [ROUTE.PRODUCT]: {
     name: "Product",
-    route: "./product",
+    route: "/product",
   },
 };
 

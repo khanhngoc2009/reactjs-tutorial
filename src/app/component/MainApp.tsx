@@ -17,7 +17,10 @@ const MainApp = (props: { open: boolean }) => {
       <div className={classes.toolbar} />
       <Routes>
         <Route path={DEFINE_ROUTE[ROUTE.HOME].route} element={<HomeScreen />} />
-        <Route path="/product" element={<ProductScreen />} />
+        <Route
+          path={DEFINE_ROUTE[ROUTE.PRODUCT].route}
+          element={<ProductScreen />}
+        />
       </Routes>
     </main>
   );
