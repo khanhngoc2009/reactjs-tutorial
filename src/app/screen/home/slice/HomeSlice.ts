@@ -1,13 +1,19 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { requestGetListUser } from "../HomeApi";
 
+export interface Image {
+  id: number;
+  is_active: boolean;
+  url: number;
+  user_id: string;
+}
 interface DataState<T> {
   data?: T;
   isLoading?: boolean;
   isError?: boolean;
 }
 
-const initialState: DataState<any[]> = {
+const initialState: DataState<Image[]> = {
   data: [],
   isError: false,
   isLoading: false,
@@ -35,6 +41,7 @@ export const homeSlice = createSlice({
         console.log(action.payload);
         state.isError = false;
         state.isLoading = false;
+        state.data = action.payload?.data ?? [];
       })
       .addCase(incrementAsyncHome.rejected, (state) => {
         state.isError = true;
