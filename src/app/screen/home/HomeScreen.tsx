@@ -1,14 +1,29 @@
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { url } from "inspector";
 import { useEffect } from "react";
+import { image } from "../../accest/image/imageImport";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import EnhancedTable from "./layout/ListData";
 import { incrementAsyncHome } from "./slice/HomeSlice";
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      flex: 1,
+      width: "100%",
+      scrollBehavior: "auto",
+    },
+    image_banner: {
+      width: "100%",
+    },
+  })
+);
 const HomeScreen = () => {
+  const className = useStyles();
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.home);
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log({ data: data.data });
 
   const getData = async () => {
     try {
@@ -16,10 +31,8 @@ const HomeScreen = () => {
     } catch (e) {}
   };
   return (
-    <div>
-      {data.data && data.data.length > 0 && (
-        <EnhancedTable data={data.data || []} />
-      )}
+    <div className={className.container}>
+      <img src={image.img_filght} className={className.image_banner} />
     </div>
   );
 };
