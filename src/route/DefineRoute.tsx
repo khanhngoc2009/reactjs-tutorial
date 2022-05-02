@@ -28,7 +28,8 @@ export function PrivateRoute(props: { children: any }) {
   return token ? children : <Navigate to="/login" />;
 }
 
-export function AuthRoute(childrent: any) {
+export function AuthRoute(props: { children: any }) {
+  const { children } = props;
   let token = getToken();
-  return !token ? childrent : <Navigate replace to="/" />;
+  return !token ? children : <Navigate replace to="/" />;
 }

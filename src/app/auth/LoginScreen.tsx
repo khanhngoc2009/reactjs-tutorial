@@ -124,7 +124,7 @@ const LoginScreen = () => {
         onClick={() => formik.handleSubmit()}
         className={className.button}
       >
-        Outlined
+        Logout
       </Button>
     </div>
   );

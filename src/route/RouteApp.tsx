@@ -11,17 +11,22 @@ const NavigateRoute = () => {
   return (
     <Router>
       <Routes>
-        {PRIVATE_ROUTE.map((e) => {
+        {PRIVATE_ROUTE.map((e, index) => {
           return (
             <Route
-              path={e.route}
+              key={index}
+              path={`${e.route}`}
               element={<PrivateRoute>{e.screen}</PrivateRoute>}
             />
           );
         })}
-        {AUTH_ROUTE.map((e) => {
+        {AUTH_ROUTE.map((e, index) => {
           return (
-            <Route path={e.route} element={<AuthRoute>{e.screen}</AuthRoute>} />
+            <Route
+              key={index}
+              path={`${e.route}`}
+              element={<AuthRoute>{e.screen}</AuthRoute>}
+            />
           );
         })}
       </Routes>
