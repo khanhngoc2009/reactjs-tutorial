@@ -15,7 +15,6 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require("@tailwindcss/forms"),
         require("@vechaiui/core"),
     ],
 };

@@ -1,3 +1,4 @@
+import { colors } from "@material-ui/core";
 import {
   alpha,
   createStyles,
@@ -18,13 +19,32 @@ export const useNavBarStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         display: "block",
       },
+      color: "black",
+      fontWeight: "bold",
+      marginRight: "5%",
+    },
+    option: {
+      display: "none",
+      [theme.breakpoints.up("sm")]: {
+        display: "block",
+      },
+      color: "black",
+      marginLeft: "1%",
+      fontSize: 13,
+    },
+    button: {
+      // width: "5%",
+      marginLeft: "1%",
+    },
+    optionView: {
+      flexDirection: "row",
     },
     search: {
       position: "relative",
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: alpha(theme.palette.common.white, 0.15),
+      backgroundColor: alpha(theme.palette.common.black, 0.15),
       "&:hover": {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: alpha(theme.palette.common.black, 0.25),
       },
       marginRight: theme.spacing(2),
       marginLeft: 0,
@@ -33,13 +53,15 @@ export const useNavBarStyles = makeStyles((theme: Theme) =>
         marginLeft: theme.spacing(3),
         width: "auto",
       },
+      borderColor: "red",
     },
     appBar: {
-      zIndex: theme.zIndex.drawer + 1,
+      // zIndex: theme.zIndex.drawer + 1,
       transition: theme.transitions.create(["width", "margin"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
+      backgroundColor: "white",
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -60,9 +82,10 @@ export const useNavBarStyles = makeStyles((theme: Theme) =>
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      color: "black",
     },
     inputRoot: {
-      color: "inherit",
+      color: "black",
     },
     inputInput: {
       padding: theme.spacing(1, 1, 1, 0),

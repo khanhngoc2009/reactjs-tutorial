@@ -1,7 +1,5 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
-import { url } from "inspector";
 import { useEffect } from "react";
-import { image } from "../../accest/image/imageImport";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { incrementAsyncHome } from "./slice/HomeSlice";
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,10 +28,6 @@ const HomeScreen = () => {
       await dispatch(incrementAsyncHome());
     } catch (e) {}
   };
-  return (
-    <div className={className.container}>
-      <img src={image.img_filght} className={className.image_banner} />
-    </div>
-  );
+  return <div className={className.container}>Đây là màn home</div>;
 };
 export default HomeScreen;

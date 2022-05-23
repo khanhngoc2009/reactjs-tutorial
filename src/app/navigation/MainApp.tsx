@@ -1,28 +1,34 @@
-import clsx from "clsx";
 import { Route, Routes } from "react-router-dom";
-import { DEFINE_ROUTE, ROUTE } from "../contant/Contant";
-import HomeScreen from "../screen/home/HomeScreen";
-import ProductScreen from "../screen/product/ProductScreen";
-import { useNavBarStyles } from "./navbar/styles";
+import {
+  AuthRoute,
+  AUTH_ROUTE,
+  PrivateRoute,
+  PRIVATE_ROUTE,
+} from "../../route/DefineRoute";
 
 const MainApp = (props: { open: boolean }) => {
-  const classes = useNavBarStyles();
-  const { open } = props;
   return (
-    <main
-      className={clsx(classes.content, {
-        [classes.contentActive]: open,
+    // <main
+    //   className={clsx(classes.content, {
+    //     [classes.contentActive]: open,
+    //   })}
+    // >
+    <Routes>
+      {PRIVATE_ROUTE.map((e) => {
+        return (
+          <Route
+            path={e.route}
+            element={<PrivateRoute>{e.screen}</PrivateRoute>}
+          />
+        );
       })}
-    >
-      <div className={classes.toolbar} />
-      <Routes>
-        <Route path={DEFINE_ROUTE[ROUTE.HOME].route} element={<HomeScreen />} />
-        <Route
-          path={DEFINE_ROUTE[ROUTE.PRODUCT].route}
-          element={<ProductScreen />}
-        />
-      </Routes>
-    </main>
+      {AUTH_ROUTE.map((e) => {
+        return (
+          <Route path={e.route} element={<AuthRoute>{e.screen}</AuthRoute>} />
+        );
+      })}
+    </Routes>
+    // </main>
   );
 };
 export default MainApp;
